@@ -14,7 +14,7 @@
 只能曲线救国了.
 ##简单分析和曲线解决
 我的想法是既然点击item时可以,那么能不能performClick()一个点击事件过去呢,这就得找到item对应的view.
-翻了下相关类的源码,最终发现item实际是`BottomNavigationMenuView`类,来找找它的点击事件吧.
+翻了下相关类的源码,最终发现item实际是`BottomNavigationItemView`类,来找找它的点击事件吧.
 ```java
     //BottomNavigationMenuView#Line 83
     mOnClickListener = new OnClickListener() {

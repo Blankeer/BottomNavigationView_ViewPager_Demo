@@ -4,6 +4,7 @@
 ##问题
 * 当item数量为3时,一切正常
 * 当item数量为4时,看下图
+
 ![gif1](https://raw.githubusercontent.com/Blankeer/BottomNavigationView_ViewPager_Demo/master/image/bottomview_1.gif)
 
 黑人问号???这什么鬼.点击item正常,但是切换viewpager不正常,没有了切换时的动画,而且item大小区域显示不正常.
@@ -101,4 +102,5 @@ if(mainViewpager.getCurrentItem()!=position) {
 ```
 ##总结
 跟踪和分析源码很有必要.
-有什么写的不对的地方,请一定要告诉我,谢谢!
+
+如果有哪里写的不对的地方,请一定要告诉我,谢谢!

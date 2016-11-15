@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_call"
+        android:icon="@drawable/ic_call_black_24dp"
+        android:title="电话" />
+    <item
+        android:id="@+id/menu_desc"
+        android:icon="@drawable/ic_description_black_24dp"
+        android:title="详情" />
+    <item
+        android:id="@+id/menu_grade"
+        android:icon="@drawable/ic_grade_black_24dp"
+        android:title="收藏" />
+    <item
+        android:id="@+id/menu_answer"
+        android:icon="@drawable/ic_question_answer_black_24dp"
+        android:title="讨论" />
+</menu>

@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
                         position = 3;
                         break;
                 }
-                if(mainViewpager.getCurrentItem()!=position) {
+                if (mainViewpager.getCurrentItem() != position) {
                     mainViewpager.setCurrentItem(position);
                     //do something
                 }
-                return false;
+                return true;
             }
         });
     }

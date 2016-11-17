@@ -18,26 +18,27 @@
 ```java
     //BottomNavigationMenuView#Line 83
     mOnClickListener = new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomNavigationItemView itemView = (BottomNavigationItemView) v;
-                final int itemPosition = itemView.getItemPosition();
+        @Override
+        public void onClick(View v) {
+            final BottomNavigationItemView itemView = (BottomNavigationItemView) v;
+            final int itemPosition = itemView.getItemPosition();
+            if (!mMenu.performItemAction(itemView.getItemData(), mPresenter, 0)) {
                 activateNewButton(itemPosition);
-                mMenu.performItemAction(itemView.getItemData(), mPresenter, 0);
             }
-        };
+        }
+    };
 ```
 就是这里了,看看`activateNewButton`里面,
 ```java
 private void activateNewButton(int newButton) {
-        if (mActiveButton == newButton) return;
-        mAnimationHelper.beginDelayedTransition(this);
-        mPresenter.setUpdateSuspended(true);
-        mButtons[mActiveButton].setChecked(false);
-        mButtons[newButton].setChecked(true);
-        mPresenter.setUpdateSuspended(false);
-        mActiveButton = newButton;
-    }
+    if (mActiveButton == newButton) return;
+    mAnimationHelper.beginDelayedTransition(this);
+    mPresenter.setUpdateSuspended(true);
+    mButtons[mActiveButton].setChecked(false);
+    mButtons[newButton].setChecked(true);
+    mPresenter.setUpdateSuspended(false);
+    mActiveButton = newButton;
+}
 ```
 这句`mAnimationHelper.beginDelayedTransition(this);`好像是执行动画的地方,进去看看
 ```java
@@ -84,6 +85,8 @@ class BottomNavigationAnimationHelperIcs extends BottomNavigationAnimationHelper
         bmv.getChildAt(position).performClick();
     }
 ```
+记得`OnNavigationItemSelectedListener#onNavigationItemSelected()`方法要返回true.
+
 解决之后的效果图:
 
 ![gif2](https://raw.githubusercontent.com/Blankeer/BottomNavigationView_ViewPager_Demo/master/image/bottomview_2.gif)
